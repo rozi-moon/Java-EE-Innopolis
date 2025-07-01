@@ -1,15 +1,14 @@
 package ru.inno.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "operation")
 @Getter
 @Setter
+@Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Operation {
@@ -26,7 +25,5 @@ public class Operation {
     @Column(name = "operation_date")
     private String date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "card_id", referencedColumnName = "id", nullable = false)
-    private Card card;
+    private Long cardId;
 }

@@ -10,6 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
@@ -26,8 +27,5 @@ public class User {
 
     @Column(name = "phone_number")
     private String phoneNumber;
-
-    @OneToMany(cascade = CascadeType.REMOVE)
-    private List<Card> cards;
 
 }
