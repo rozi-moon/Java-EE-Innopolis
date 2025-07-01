@@ -1,10 +1,7 @@
 package ru.inno.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -14,6 +11,8 @@ import java.util.List;
 @Table(name = "card")
 @Getter
 @Setter
+@Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Card {
@@ -30,11 +29,6 @@ public class Card {
 
     private BigDecimal balance;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
-    private User user;
-
-    @OneToMany(cascade = CascadeType.REMOVE)
-    private List<Operation> operations;
+    private Long userId;
 
 }
