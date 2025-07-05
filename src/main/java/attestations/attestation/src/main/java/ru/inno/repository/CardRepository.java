@@ -1,21 +1,10 @@
 package ru.inno.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import ru.inno.model.Card;
 
 import java.util.List;
 
-public interface CardRepository {
-
-    Card findById(Long id);
-
-    List<Card> findAll();
-
-    Integer create(Card operation);
-
-    Integer update(Card operation);
-
-    void deleteById(Long id);
-
-    void deleteAl();
+public interface CardRepository extends JpaRepository<Card, Long> {
 
 }
