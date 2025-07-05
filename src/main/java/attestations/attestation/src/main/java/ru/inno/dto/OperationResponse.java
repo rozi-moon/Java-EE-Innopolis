@@ -1,9 +1,10 @@
 package ru.inno.dto;
 
-import ru.inno.model.Operation;
+import lombok.Builder;
 
 import java.math.BigDecimal;
 
+@Builder
 public record OperationResponse(Long id, String type, BigDecimal balanceChange, String date, Boolean deleted,
                                 Long cardId) {
 }
