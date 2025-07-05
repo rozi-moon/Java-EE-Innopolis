@@ -17,6 +17,9 @@ import ru.inno.service.impl.UserServiceImpl;
 import java.util.List;
 import java.util.Optional;
 
+import static data.UserData.getRequest;
+import static data.UserData.getUserEntity;
+
 
 @SpringBootTest(classes = {UserServiceImpl.class, UserMapperImpl.class})
 public class UserServiceTest {
@@ -96,25 +99,6 @@ public class UserServiceTest {
         Mockito.when(repository.findById(id)).thenReturn(Optional.of(entity));
 
         Assertions.assertDoesNotThrow(() -> service.deleteUser(id));
-    }
-
-    private static UserRequest getRequest() {
-        return UserRequest.builder()
-                .email("email")
-                .login("login")
-                .password("password")
-                .phoneNumber("89991231234")
-                .build();
-    }
-
-    private static User getUserEntity() {
-        return User.builder()
-                .id(1L)
-                .login("login")
-                .password("password")
-                .email("email")
-                .phoneNumber("89991231234")
-                .build();
     }
 
 }
