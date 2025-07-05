@@ -21,7 +21,7 @@ public class OperationController {
         return ResponseEntity.ok(service.getOperation(id));
     }
 
-    @GetMapping("/list")
+    @GetMapping()
     public ResponseEntity<List<OperationResponse>> getOperations() {
         return ResponseEntity.ok(service.getOperations());
     }
