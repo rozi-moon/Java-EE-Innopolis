@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-@ToString
+@ToString(exclude = "cards")
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
@@ -27,5 +27,10 @@ public class User {
 
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    private Boolean deleted = false;
+
+    @OneToMany(mappedBy = "user")
+    private List<Card> cards;
 
 }

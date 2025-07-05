@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-@ToString
+@ToString(exclude = {"user", "operations"})
 @NoArgsConstructor
 @AllArgsConstructor
 public class Card {
@@ -29,6 +29,13 @@ public class Card {
 
     private BigDecimal balance;
 
-    private Long userId;
+    private Boolean deleted = false;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    private User user;
+
+    @OneToMany(mappedBy = "card")
+    private List<Operation> operations;
 
 }
