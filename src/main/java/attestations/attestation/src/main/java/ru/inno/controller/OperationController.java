@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api/v1/operations")
 public class OperationController {
 
     private final OperationService service;
